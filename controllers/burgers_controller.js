@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const burger = require("../models/burger.js");
+const burger = require("../models/burger");
 
 router.get("/", (req, res) => {
   burger.selectAll((data) => {
@@ -12,13 +12,13 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/api/burgers", (req, res) => {
+router.post("/api/burger", (req, res) => {
   burger.insertOne([req.body.name], (response) => {
     res.json({ id: response.insertId });
   });
 });
 
-router.put("/api/burgers/:id", (req, res) => {
+router.put("/api/burger/:id", (req, res) => {
   const id = req.params.id;
   burger.updateOne({ devoured: req.body.devoured }, id, (response) => {
     if (response.changedRows == 0) {

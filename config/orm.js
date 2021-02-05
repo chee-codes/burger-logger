@@ -1,17 +1,17 @@
-const connection = require("./connection.js");
+const connection = require("./connection");
 
 const orm = {
-  selectAll: function (callback) {
-    const query = "SELECT * FROM burger";
+  selectAll: function (input, callback) {
+    const query = `SELECT * FROM ${input};`;
     connection.query(query, (err, res) => {
       if (err) throw err;
 
-      console.log(res);
+      //console.log(res);
       callback(res);
     });
   },
   insertOne: function (input, callback) {
-    const query = "INSERT INTO burgers (name) VALUES (" + input + ")";
+    const query = "INSERT INTO burger (name) VALUES (" + input + ")";
     connection.query(query, (err, res) => {
       if (err) throw err;
 
@@ -20,7 +20,7 @@ const orm = {
     });
   },
   updateOne: function (input, callback) {
-    const query = "UPDATE burgers SET devoured = true WHERE " + input;
+    const query = "UPDATE burger SET devoured = true WHERE " + input;
     connection.query(query, (err, res) => {
       if (err) throw err;
 
