@@ -9,3 +9,4 @@ VALUES ("Peanut Butter Burger");
 
 INSERT INTO burgers (burger_name)
 VALUES ("Half and Half");
+
