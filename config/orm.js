@@ -6,12 +6,12 @@ const orm = {
     connection.query(query, (err, res) => {
       if (err) throw err;
 
-      //console.log(res);
+      console.log(res);
       callback(res);
     });
   },
-  insertOne: function (input, callback) {
-    const query = "INSERT INTO burger (name) VALUES (" + input + ")";
+  insertOne: function (input, name, callback) {
+    const query = `INSERT INTO ${input} (burger_name) VALUES ("${name}")`;
     connection.query(query, (err, res) => {
       if (err) throw err;
 
@@ -19,8 +19,8 @@ const orm = {
       callback(res);
     });
   },
-  updateOne: function (input, callback) {
-    const query = "UPDATE burger SET devoured = true WHERE " + input;
+  updateOne: function (id, val, callback) {
+    const query = `UPDATE burgers SET devoured = ${val} WHERE id = ${id}`;
     connection.query(query, (err, res) => {
       if (err) throw err;
 

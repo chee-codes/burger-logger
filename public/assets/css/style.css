@@ -1,0 +1,47 @@
+body {
+  background: lightgray;
+}
+
+.main-title {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.main-title h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.grid-x {
+  margin-top: 20px;
+}
+
+.card {
+  border: none;
+}
+
+.card h3 {
+  text-align: center;
+}
+
+.cell ul {
+  list-style-type: none;
+}
+
+.cell ul li {
+  justify-content: center;
+}
+
+.change-devour {
+  background: black;
+  color: white;
+}
+
+.form-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+form {
+  justify-content: center;
+}
