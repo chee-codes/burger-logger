@@ -29,7 +29,7 @@ body {
 }
 
 .cell ul li {
-  justify-content: center;
+  margin-top: 5px;
 }
 
 .change-devour {

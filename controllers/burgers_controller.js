@@ -12,15 +12,16 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/api/burger", (req, res) => {
-  burger.insertOne([req.body.name], (response) => {
+router.post("/api/burgers", (req, res) => {
+  burger.insertOne(["name"], [req.body.burger_name], (response) => {
     res.json({ id: response.insertId });
   });
 });
 
-router.put("/api/burger/:id", (req, res) => {
+router.put("/api/burgers/:id", (req, res) => {
   const id = req.params.id;
-  burger.updateOne({ devoured: req.body.devoured }, id, (response) => {
+
+  burger.updateOne(id, { devoured: req.body.devoured }, (response) => {
     if (response.changedRows == 0) {
       return res.status(404).end();
     } else {
