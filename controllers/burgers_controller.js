@@ -7,21 +7,27 @@ router.get("/", (req, res) => {
     const hbsObj = {
       burgers: data,
     };
-    console.log(hbsObj);
+    // console.log(hbsObj);
     res.render("index", hbsObj);
   });
 });
 
 router.post("/api/burgers", (req, res) => {
-  burger.insertOne(["name"], [req.body.burger_name], (response) => {
-    res.json({ id: response.insertId });
-  });
+  burger.insertOne(
+    ["name", "devoured"],
+    [req.body.name, req.body.devoured],
+    (response) => {
+      res.json({ id: response.insertId });
+    }
+  );
 });
 
 router.put("/api/burgers/:id", (req, res) => {
-  const id = req.params.id;
+  let condition = "id = " + req.params.id;
+  console.log("this is the condition: " + condition);
+  console.log("this is the body: " + req.body);
 
-  burger.updateOne(id, { devoured: req.body.devoured }, (response) => {
+  burger.updateOne({ devoured: req.body.devoured }, condition, (response) => {
     if (response.changedRows == 0) {
       return res.status(404).end();
     } else {

@@ -9,7 +9,7 @@ $(function () {
     let newDevourState = {
       devoured: newDevour,
     };
-    $.ajax("/api/burgers" + id, {
+    $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: newDevourState,
     }).then(() => {
@@ -27,6 +27,7 @@ $(function () {
       type: "POST",
       data: newBurger,
     }).then(() => {
+      console.log("I created a burger");
       location.reload();
     });
   });
