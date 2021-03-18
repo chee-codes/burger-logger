@@ -25,7 +25,7 @@ Burger logger is an application that allows users to "make" and "devour" differe
 
 [Live Site](https://glacial-bastion-85175.herokuapp.com/)
 
-![alt ext]()
+![alt ext](./image/burger-app.png)
 
 ## Authors
 
